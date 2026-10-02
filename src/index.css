@@ -108,6 +108,17 @@
   .cell-hover:hover {
     border-color: var(--accent);
   }
+
+  /* Product row (Products page): two columns on desktop, stacked on narrow screens */
+  @media (max-width: 860px) {
+    .product-row {
+      grid-template-columns: 1fr !important;
+    }
+    .product-row > div:first-child {
+      border-right: none !important;
+      border-bottom: 1px solid var(--border);
+    }
+  }
 }
 
 /* ─── Scrollbar ─── */

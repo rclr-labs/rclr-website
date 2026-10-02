@@ -15,6 +15,8 @@ export default function Nav() {
 
   const links = [
     ['./sobre', '#sobre'],
+    ['./autoridade', '#/autoridade'],
+    ['./produtos', '#/produtos'],
     ['./palestras', '#palestras'],
     ['./livros', '#livros'],
     ['./blog', '#blog'],
@@ -50,7 +52,7 @@ export default function Nav() {
       </div>
 
       {/* Desktop nav */}
-      <nav className="hidden md:flex" style={{ gap: 4, fontFamily: MONO, fontSize: 12 }}>
+      <nav className="hidden lg:flex" style={{ gap: 4, fontFamily: MONO, fontSize: 12 }}>
         {links.map(([label, href]) => (
           <a key={label} href={href} style={{
             color: 'var(--fg-mid)',
@@ -93,7 +95,7 @@ export default function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
           aria-label="Toggle menu"
@@ -114,7 +116,7 @@ export default function Nav() {
           borderBottom: '1px solid var(--border)',
           padding: '16px 24px',
           display: 'flex', flexDirection: 'column', gap: 12,
-        }} className="md:hidden">
+        }} className="lg:hidden">
           {links.map(([label, href]) => (
             <a key={label} href={href} onClick={() => setMenuOpen(false)} style={{
               fontFamily: MONO, fontSize: 13, color: 'var(--fg-mid)', textDecoration: 'none',

@@ -14,6 +14,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import PostPage from './pages/PostPage'
 import AdminPage from './pages/AdminPage'
+import AuthorityPage from './pages/AuthorityPage'
+import ProductsPage from './pages/ProductsPage'
 import { ContentProvider } from './context/ContentContext'
 
 export const ThemeContext = createContext({ light: false, accent: '#7CFFB2' })
@@ -41,6 +43,8 @@ export default function App() {
     const m = h.match(/^\/post\/(.+)/)
     if (m) return { kind: 'post', slug: m[1] }
     if (h === '/admin') return { kind: 'admin' }
+    if (h === '/autoridade') return { kind: 'autoridade' }
+    if (h === '/produtos') return { kind: 'produtos' }
     return { kind: 'home' }
   })()
 
@@ -48,6 +52,16 @@ export default function App() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark')
   }, [light])
+
+  // Plain anchors (#sobre) must scroll even when arriving from a sub-page:
+  // the hash changes to something that is not a route, so the home section
+  // mounts first and only then can be scrolled into view.
+  useEffect(() => {
+    const h = hash.replace(/^#/, '')
+    if (!h || h.startsWith('/')) return
+    const el = document.getElementById(h)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [hash])
 
   const accent = light ? '#1f7e4a' : '#7CFFB2'
 
@@ -71,6 +85,16 @@ export default function App() {
               <Agenda />
               <Newsletter />
               <Contact />
+            </main>
+            <Footer />
+          </div>
+        )}
+
+        {(route.kind === 'autoridade' || route.kind === 'produtos') && (
+          <div style={{ width: '100%', minHeight: '100vh', background: 'var(--bg)', color: 'var(--fg)' }}>
+            <Nav />
+            <main>
+              {route.kind === 'autoridade' ? <AuthorityPage /> : <ProductsPage />}
             </main>
             <Footer />
           </div>
