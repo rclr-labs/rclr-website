@@ -18,7 +18,7 @@ export default function Testimonials() {
         lineHeight: 1, fontWeight: 600, letterSpacing: '-0.03em',
         margin: '16px 0 56px', color: 'var(--fg)',
       }}>
-        Feedback de quem nos contratou.
+        Feedback
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 24 }}>
         {testimonialsData.map((q, i) => (
