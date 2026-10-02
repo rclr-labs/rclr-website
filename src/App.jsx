@@ -5,7 +5,6 @@ import Manifesto from './components/Manifesto'
 import About from './components/About'
 import Agora from './components/Agora'
 import Speaking from './components/Speaking'
-import Book from './components/Book'
 import Blog from './components/Blog'
 import Testimonials from './components/Testimonials'
 import Agenda from './components/Agenda'
@@ -79,7 +78,6 @@ export default function App() {
               <About />
               <Agora />
               <Speaking />
-              <Book />
               <Blog />
               <Testimonials />
               <Agenda />

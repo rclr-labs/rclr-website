@@ -18,7 +18,6 @@ export default function Nav() {
     ['./autoridade', '#/autoridade'],
     ['./produtos', '#/produtos'],
     ['./palestras', '#palestras'],
-    ['./livros', '#livros'],
     ['./blog', '#blog'],
     ['./agenda', '#agenda'],
     ['./contato', '#contato'],

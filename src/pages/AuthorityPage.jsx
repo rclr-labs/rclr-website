@@ -54,7 +54,7 @@ const COPY = {
     publications: {
       title: ['Publicações e', 'reconhecimento.'],
       book: {
-        tag: 'livro · pré-venda 2026',
+        tag: 'livro',
         title: 'Qualidade antes do pipeline.',
         body: 'Quinze anos construindo plataformas de teste e cultura de qualidade, condensados em quatro capítulos — sem heróis e sem manuais. Autoria de R. N. Cintra e L. Rosochansky.',
       },
@@ -104,7 +104,7 @@ const COPY = {
     publications: {
       title: ['Publications and', 'recognition.'],
       book: {
-        tag: 'book · pre-order 2026',
+        tag: 'book',
         title: 'Qualidade antes do pipeline.',
         body: 'Fifteen years building test platforms and a quality culture, condensed into four chapters — no heroes, no manuals. By R. N. Cintra and L. Rosochansky.',
       },
