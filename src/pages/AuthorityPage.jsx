@@ -75,7 +75,7 @@ const COPY = {
       ],
     },
     quotesLabel: 'depoimentos',
-    quotesTitle: ['Quem nos', 'contratou, disse.'],
+    quotesTitle: ['Feedback'],
     cta: {
       title: 'Quer essa profundidade no seu evento?',
       body: 'Keynote, talk técnica, workshop ou mentoria de time — solo ou em dupla, em português e inglês.',
@@ -125,7 +125,7 @@ const COPY = {
       ],
     },
     quotesLabel: 'testimonials',
-    quotesTitle: ['What the people', 'who hired us said.'],
+    quotesTitle: ['Feedback'],
     cta: {
       title: 'Want this depth at your event?',
       body: 'Keynote, technical talk, workshop, or team mentoring — solo or as a duo, in Portuguese and English.',
@@ -192,7 +192,7 @@ function SectionHead({ eyebrow, title, meta }) {
           fontFamily: SANS, fontSize: 'clamp(2rem, 5vw, 3.25rem)', lineHeight: 1.02,
           fontWeight: 600, letterSpacing: '-0.03em', margin: '16px 0 0', color: 'var(--fg)',
         }}>
-          {title[0]}<br /><span style={{ color: 'var(--fg-soft)' }}>{title[1]}</span>
+          {title[0]}{title[1] && <><br /><span style={{ color: 'var(--fg-soft)' }}>{title[1]}</span></>}
         </h2>
       </div>
       {meta && (
