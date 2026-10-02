@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "rclr-website"
+  },
   "targets": {},
   "etags": {}
 }
