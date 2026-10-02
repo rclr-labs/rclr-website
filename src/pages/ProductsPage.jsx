@@ -9,8 +9,10 @@ const SANS = '"Geist", "Inter Tight", system-ui, sans-serif'
    ferramentas internas, uso pessoal, entrega de cliente único e os produtos
    cujo nome ainda é codinome interno (não publicamos codinome como marca).
 
-   Referências: Oculus/PROJECT.md · Severinus/PROJECT.md ·
-   white-label-data360/PROJECT.md · Domus/PROJECT.md */
+   Referências: Oculus/PROJECT.md · Domus/PROJECT.md ·
+   white-label-data360/PROJECT.md
+   Severinus (SaaS condominial, backend completo) saiu da vitrine em 02/out/2026
+   a pedido — retomar quando houver decisão de go-live. */
 
 const PRODUCTS = [
   {
@@ -38,32 +40,6 @@ const PRODUCTS = [
     },
     audience: { pt: 'Empresas de qualquer porte que gerenciam portfólio, produtos e times', en: 'Companies of any size managing portfolio, products, and teams' },
     diff: { pt: 'A hierarquia se adapta ao vocabulário da empresa — não o contrário.', en: 'The hierarchy adapts to the company\u2019s vocabulary — not the other way around.' },
-  },
-  {
-    key: 'severinus',
-    name: 'Severinus',
-    status: { pt: 'backend completo', en: 'backend complete' },
-    tone: 'accent',
-    pitch: {
-      pt: 'Gestão condominial com transparência financeira em tempo real e autoatendimento do morador.',
-      en: 'Condominium management with real-time financial transparency and resident self-service.',
-    },
-    bullets: {
-      pt: [
-        'Atende condomínios verticais e horizontais no mesmo produto, com campos customizados por condomínio.',
-        'Cobrança por unidade, régua de inadimplência, fluxo de caixa e balancete em tempo real, prestação de contas com rateio e fundo de reserva.',
-        'Autoatendimento do morador: reserva de áreas comuns, portaria, dependentes e veículos.',
-        'Backend em Python/FastAPI sobre Cloud Run, Firestore e Firebase Auth; frontend Next.js; notificações por push.',
-      ],
-      en: [
-        'Serves vertical and horizontal condominiums in the same product, with per-condominium custom fields.',
-        'Per-unit billing, delinquency workflow, real-time cash flow and balance sheet, statements with apportionment and a reserve fund.',
-        'Resident self-service: common-area booking, front desk, dependants, and vehicles.',
-        'Python/FastAPI backend on Cloud Run, Firestore, and Firebase Auth; Next.js frontend; push notifications.',
-      ],
-    },
-    audience: { pt: 'Condomínios, síndicos, conselhos e administradoras', en: 'Condominiums, building managers, boards, and management companies' },
-    diff: { pt: 'Transparência financeira em tempo real como princípio de produto, não como relatório do mês seguinte.', en: 'Real-time financial transparency as a product principle, not next month\u2019s report.' },
   },
   {
     key: 'domus',
@@ -151,7 +127,7 @@ const COPY = {
     eyebrow: '// 11 · produtos',
     title: ['Software que a RCLR', 'vende como SaaS.'],
     lede:
-      'Produtos multi-tenant com o estágio declarado sem maquiagem: o que já roda em produção, o que tem backend completo e o que ainda é design de MVP.',
+      'Produtos multi-tenant com o estágio declarado sem maquiagem — do que já roda em produção ao que ainda é design de MVP.',
     metaSaas: 'saas',
     metaBeyond: 'além do saas',
     whatLabel: 'o que faz',
@@ -178,7 +154,7 @@ const COPY = {
     eyebrow: '// 11 · products',
     title: ['Software RCLR', 'sells as SaaS.'],
     lede:
-      'Multi-tenant products with their stage stated plainly: what already runs in production, what has a complete backend, and what is still an MVP design.',
+      'Multi-tenant products with their stage stated plainly — from what already runs in production to what is still an MVP design.',
     metaSaas: 'saas',
     metaBeyond: 'beyond saas',
     whatLabel: 'what it does',
