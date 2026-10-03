@@ -1,0 +1,8 @@
+name = "rclr-apex-redirect"
+main = "src/index.js"
+compatibility_date = "2026-05-25"
+
+# Worker mínimo: 301 de rclr.com.br para www.rclr.com.br.
+# O domínio é anexado como custom domain fora do arquivo (via API/dashboard),
+# para não interferir no domínio do Worker do site.
+observability = { enabled = true }
