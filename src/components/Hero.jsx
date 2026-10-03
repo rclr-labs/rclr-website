@@ -1,4 +1,5 @@
 import { useContent } from '../context/ContentContext'
+import { TOTAL, INTERNATIONAL, COUNTRIES } from '../data/talkStats'
 
 const MONO = '"JetBrains Mono", monospace'
 const SANS = '"Geist", "Inter Tight", system-ui, sans-serif'
@@ -122,7 +123,11 @@ export default function Hero() {
             display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 1, background: 'var(--border)', borderTop: '1px solid var(--border)',
           }}>
-            {[{ k: 'Palestras', v: '70+' }, { k: 'Países', v: '12' }, { k: 'Anos', v: '15+' }].map((s, i) => (
+            {[
+              { k: 'Palestras', v: String(TOTAL) },
+              { k: 'Países', v: String(COUNTRIES.length) },
+              { k: 'Internacionais', v: String(INTERNATIONAL) },
+            ].map((s, i) => (
               <div key={i} style={{ background: 'var(--bg)', padding: '20px 16px' }}>
                 <div style={{
                   fontFamily: SANS, fontSize: 28, fontWeight: 600,

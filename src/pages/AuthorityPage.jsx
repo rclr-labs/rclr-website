@@ -1,31 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import talks from '../data/talks.json'
+import { TOTAL, INTERNATIONAL, COUNTRIES, YEARS } from '../data/talkStats'
 
 const MONO = '"JetBrains Mono", monospace'
 const SANS = '"Geist", "Inter Tight", system-ui, sans-serif'
 
 /* ─── Derivados verificáveis do arquivo público de palestras ─────────────
-   Nada aqui é digitado à mão: tudo sai de src/data/talks.json, para que a
-   página não afirme número que o arquivo não sustenta. */
-const YEARS = [...new Set(talks.map((t) => t.year))].sort()
-
-const COUNTRY_RULES = [
-  ['Brazil', 'Brasil'],
-  ['Spain', 'Espanha'],
-  ['United Kingdom', 'Reino Unido'],
-  ['UK', 'Reino Unido'],
-  ['Germany', 'Alemanha'],
-  ['United States', 'Estados Unidos'],
-]
-
-function countryOf(talk) {
-  const loc = talk.location_en || ''
-  const rule = COUNTRY_RULES.find(([needle]) => loc.includes(needle))
-  return rule ? rule[1] : null
-}
-
-const COUNTRIES = [...new Set(talks.map(countryOf).filter(Boolean))].sort()
-const INTERNATIONAL = talks.filter((t) => t.international).length
+   Nada aqui é digitado à mão: a derivação vive em `src/data/talkStats.js`,
+   compartilhada com o Hero, o About e o PostPage, para que nenhuma página
+   afirme número que o arquivo não sustenta. */
 const BY_YEAR = YEARS.slice().reverse().map((year) => ({
   year,
   items: talks.filter((t) => t.year === year),
@@ -210,7 +193,7 @@ export default function AuthorityPage() {
   const c = COPY[lang]
 
   const stats = [
-    { v: String(talks.length), k: c.stats.talks },
+    { v: String(TOTAL), k: c.stats.talks },
     { v: String(INTERNATIONAL), k: c.stats.intl },
     { v: String(COUNTRIES.length), k: c.stats.countries },
     { v: String(YEARS.length), k: c.stats.years },
@@ -317,7 +300,7 @@ export default function AuthorityPage() {
       <section style={{ padding: SECTION_PAD, borderBottom: '1px solid var(--border)' }}>
         <SectionHead
           eyebrow={`// 10.2 · ${c.stages.title.toLowerCase()}`}
-          title={[c.stages.title + '.', `${talks.length} ${lang === 'pt' ? 'registros' : 'records'}`]}
+          title={[c.stages.title + '.', `${TOTAL} ${lang === 'pt' ? 'registros' : 'records'}`]}
           meta={`${COUNTRIES.join(' · ')}`}
         />
         <div style={{ border: '1px solid var(--border)' }}>

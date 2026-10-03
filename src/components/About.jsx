@@ -1,5 +1,11 @@
+import { bySpeaker } from '../data/talkStats'
+
 const MONO = '"JetBrains Mono", monospace'
 const SANS = '"Geist", "Inter Tight", system-ui, sans-serif'
+
+// Números de palco derivados do arquivo de palestras — nunca digitados à mão.
+const rafaelTalks = bySpeaker('Rafael')
+const larissaTalks = bySpeaker('Larissa')
 
 const MonoLabel = ({ children, color, style = {} }) => (
   <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: color || 'var(--fg-soft)', ...style }}>
@@ -14,7 +20,11 @@ const bios = {
     tag: 'engineer · qa platforms',
     uid: 'rafael.navarro.cintra',
     long: 'Rafael atua há mais de 15 anos construindo plataformas de teste e cultura de qualidade em times de engenharia. Falou em TDC, LeadDev e TestBash sobre como integrar qualidade no ciclo de desenvolvimento ao invés de empurrar para o fim do pipeline.',
-    stats: [{ k: 'Anos', v: '15+' }, { k: 'Palcos', v: '30+' }, { k: 'Países', v: '8' }],
+    stats: [
+      { k: 'Palestras', v: String(rafaelTalks.talks) },
+      { k: 'Internacionais', v: String(rafaelTalks.international) },
+      { k: 'Países', v: String(rafaelTalks.countries.length) },
+    ],
     linkedin: 'https://linkedin.com/in/rafaelncintra',
     medium: 'https://medium.com/@rafaelnc',
   },
@@ -24,7 +34,11 @@ const bios = {
     tag: 'intl speaker · lean digital',
     uid: 'larissa.rosochansky',
     long: 'Larissa palestra em conferências como Agile Testing Days, STARWEST, Agile+DevOps East e TestBash. Trabalha na intersecção de automação, transformação ágil e o que mantém as pessoas relevantes em times cada vez mais assistidos por IA.',
-    stats: [{ k: 'Países', v: '12' }, { k: 'Conferências', v: '40+' }, { k: 'Anos', v: '12' }],
+    stats: [
+      { k: 'Palestras', v: String(larissaTalks.talks) },
+      { k: 'Internacionais', v: String(larissaTalks.international) },
+      { k: 'Países', v: String(larissaTalks.countries.length) },
+    ],
     linkedin: 'https://linkedin.com/in/lrosocha',
   },
 }

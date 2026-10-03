@@ -1,5 +1,6 @@
 import { useContent } from '../context/ContentContext'
 import { navigate } from '../utils/navigate'
+import { COUNTRIES, FIRST_YEAR } from '../data/talkStats'
 
 const MONO = '"JetBrains Mono", monospace'
 const SANS = '"Geist", "Inter Tight", system-ui, sans-serif'
@@ -180,7 +181,7 @@ export default function PostPage({ slug }) {
               <div style={{ border: '1px solid var(--border)', background: 'var(--surface)', padding: 20, marginBottom: 24 }}>
                 <div className="ph" style={{ width: '100%', aspectRatio: '1/1', marginBottom: 16 }}>R + L</div>
                 <p style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--fg-mid)', margin: 0 }}>
-                  Rafael e Larissa palestram, escrevem e formam times sobre engenharia de qualidade desde 2019. Já passaram por 12 países.
+                  Rafael e Larissa palestram, escrevem e formam times sobre engenharia de qualidade desde {FIRST_YEAR}. Já passaram por {COUNTRIES.length} países.
                 </p>
               </div>
             </aside>
