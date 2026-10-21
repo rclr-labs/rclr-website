@@ -1,24 +1,49 @@
 {
   "nome": "rclr-website",
   "versao": 1,
-  "protegidos": ["ci/**", "package.json", "package-lock.json"],
+  "protegidos": [
+    "ci/**",
+    "package.json",
+    "package-lock.json"
+  ],
   "jobs": [
     {
       "id": "lint",
       "run": "npm ci && npm run lint",
-      "paths": ["src/**", "scripts/**", "eslint.config.js", "package.json", "package-lock.json"],
+      "paths": [
+        "src/**",
+        "scripts/**",
+        "eslint.config.js",
+        "package.json",
+        "package-lock.json"
+      ],
       "classe": "pre-merge",
       "timeout_seg": 300,
-      "sandbox": { "rede": "liberada" }
+      "sandbox": {
+        "rede": "liberada",
+        "memoria_max_mb": -1
+      }
     },
     {
       "id": "build",
       "run": "npm ci && npm run build",
-      "needs": ["lint"],
-      "paths": ["src/**", "scripts/**", "content/**", "package.json", "package-lock.json", "vite.config.js"],
+      "needs": [
+        "lint"
+      ],
+      "paths": [
+        "src/**",
+        "scripts/**",
+        "content/**",
+        "package.json",
+        "package-lock.json",
+        "vite.config.js"
+      ],
       "classe": "pre-merge",
       "timeout_seg": 600,
-      "sandbox": { "rede": "liberada" }
+      "sandbox": {
+        "rede": "liberada",
+        "memoria_max_mb": -1
+      }
     }
   ]
 }
