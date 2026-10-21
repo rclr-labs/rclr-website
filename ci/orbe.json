@@ -21,7 +21,9 @@
       "timeout_seg": 300,
       "sandbox": {
         "rede": "liberada",
-        "memoria_max_mb": -1
+        "memoria_max_mb": -1,
+        "processos_max": 1024,
+        "descritores_max": 4096
       }
     },
     {
@@ -42,7 +44,9 @@
       "timeout_seg": 600,
       "sandbox": {
         "rede": "liberada",
-        "memoria_max_mb": -1
+        "memoria_max_mb": -1,
+        "processos_max": 1024,
+        "descritores_max": 4096
       }
     }
   ]
