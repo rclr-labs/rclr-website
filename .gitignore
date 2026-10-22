@@ -13,7 +13,22 @@ dist-ssr
 *.local
 
 # Generated build artifacts
+# Gerados por scripts/build-content.js a partir de content/.
+#
+# Versionar arquivo gerado já era inconsistente — `posts.json` sempre esteve
+# aqui e os outros três não. No Orbe isso deixou de ser só inconsistência e
+# passou a QUEBRAR: o workspace materializa cada arquivo vindo do repositório
+# por hardlink do armazém, em modo 0444, e o build morre com
+#
+#   EACCES: permission denied, open 'src/data/talks.json'
+#
+# A leitura-somente é necessária, não um detalhe: o hardlink compartilha o
+# inode com o objeto endereçado por conteúdo, e escrever por ele corromperia
+# aquele digest para todo job e changeset que o referencie.
 src/data/posts.json
+src/data/talks.json
+src/data/book.json
+src/data/oculus.json
 
 # Editor directories and files
 .vscode/*
