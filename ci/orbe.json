@@ -11,12 +11,17 @@
       "id": "build",
       "run": "npm ci && npm run build",
       "paths": [
-        "src/**",
-        "scripts/**",
         "content/**",
-        "package.json",
+        "index.html",
         "package-lock.json",
-        "vite.config.js"
+        "package.json",
+        "postcss.config.js",
+        "public/**",
+        "scripts/**",
+        "src/**",
+        "tailwind.config.js",
+        "vite.config.js",
+        "wrangler.jsonc"
       ],
       "classe": "pre-merge",
       "timeout_seg": 600,
