@@ -44,3 +44,46 @@ diferente**. Nenhuma leitura de `paths` pegaria isso.
 
 Vale como método para qualquer job de build no Orbe: o teste não é "o job
 passa", é "o artefato bate".
+
+## Arquivo gerado não pode estar versionado
+
+O build falhou com `EACCES` depois de o escopo ficar completo:
+
+```
+build-content: wrote 2 post(s) to src/data/posts.json
+Error: EACCES: permission denied, open '.../src/data/talks.json'
+    at writeFileSync (node:fs:2430:20)
+    at scripts/build-content.js:82:3
+```
+
+O contraste diz tudo: `posts.json` foi escrito e `talks.json` não. `posts.json`
+está no `.gitignore`; `talks.json` estava versionado.
+
+O workspace do Orbe materializa cada arquivo vindo do repositório por **hardlink
+do armazém, em modo 0444**. E a leitura-somente é **necessária**, não um detalhe
+de implementação: o hardlink compartilha o inode com o objeto endereçado por
+conteúdo, e escrever por ele corromperia aquele digest para todo job e changeset
+que o referencie.
+
+Então a regra, para qualquer repositório no Orbe: **um job não pode escrever
+sobre arquivo que veio do repositório.**
+
+`scripts/build-content.js` gera quatro arquivos a partir de `content/`:
+
+| arquivo | antes |
+|---|---|
+| `src/data/posts.json` | gitignored — funcionava |
+| `src/data/talks.json` | **versionado** — EACCES |
+| `src/data/book.json` | **versionado** |
+| `src/data/oculus.json` | **versionado** |
+
+Os três entraram no `.gitignore`, junto do irmão que já estava lá. Versionar
+arquivo gerado já era inconsistente antes do Orbe; o Orbe só transformou a
+inconsistência em falha.
+
+`src/data/testimonials.json` e `src/data/talkStats.js` seguem versionados, e
+devem: ninguém os gera.
+
+Verificado simulando o workspace (`chmod 0444` em tudo que vem do repositório):
+com os três versionados, `EACCES`; sem eles, `✓ built in 818ms`, e o `dist`
+byte a byte idêntico ao build da árvore inteira.
