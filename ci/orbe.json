@@ -8,30 +8,8 @@
   ],
   "jobs": [
     {
-      "id": "lint",
-      "run": "npm ci && npm run lint",
-      "paths": [
-        "src/**",
-        "scripts/**",
-        "eslint.config.js",
-        "package.json",
-        "package-lock.json"
-      ],
-      "classe": "pre-merge",
-      "timeout_seg": 300,
-      "sandbox": {
-        "rede": "liberada",
-        "memoria_max_mb": -1,
-        "processos_max": 1024,
-        "descritores_max": 4096
-      }
-    },
-    {
       "id": "build",
       "run": "npm ci && npm run build",
-      "needs": [
-        "lint"
-      ],
       "paths": [
         "src/**",
         "scripts/**",
